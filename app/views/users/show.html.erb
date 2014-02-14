@@ -1,0 +1,21 @@
+<div class="main-container">
+
+   <div class="gravatar-image-content">
+     <%= gravatar_for @user %>
+   </div>
+   <div class="name-email-content">
+     <%= @user.name %>
+     </br><%= @user.email %>
+   </div>
+
+   <div class="admin-access-tabs">
+    <div class="float-tab"><%= link_to "Paymonths",paymonths_path %>
+      </br><%= link_to "Projects",projects_path %>
+      </br><%= link_to "Employees",employees_path %></div>
+   </div>
+
+   <div class="cls"></div>
+
+ </div>
+
+

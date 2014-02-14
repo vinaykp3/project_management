@@ -1,3 +1,189 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$grayLighter: #f3f3f3;
+
+body{
+  margin:0px auto;
+  padding:0px;
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header{
+  background-color: #000000;
+  margin: 0px auto;
+  padding:0px;
+}
+
+.sub-header{
+  width: 980px;
+  margin: 0px auto;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.main-footer{
+  background-color: #000000;
+  margin: 0px auto;
+  padding:0px;
+  width: 980px;
+  margin-top: 20px;
+}
+
+.sub-footer{
+  margin: 0px auto;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 18px;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.debug_dump_info{
+  padding:0px;
+  background-color: #eaeaea;
+  width: 980px;
+  margin: 0px auto;
+  @include box_sizing;
+  text-align: center;
+  border: 1px solid #999999;
+  margin-top: 20px;
+}
+//
+//.debug_dump_info{
+//  width: 100%;
+//}
+
+.main-container{
+  width: 980px;
+  margin: 0px auto;
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+  }
+}
+
+.gravatar-image-content{
+  float: left;
+  .gravatar{
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.name-email-content{
+  font-size: 20px;
+  margin-left:5px;
+  width: 290px;
+  float: left;
+  margin-top: 5px;
+}
+
+.admin-access-tabs{
+  float: left;
+  width: 605px;
+  margin-top: 2px;
+  font-size: 16px;
+  .float-tab{
+    margin-left: 500px;
+   a{
+    text-decoration: none;
+    color: #006ccc;
+    }
+  }
+}
+
+.cls{
+  clear: both;
+}
+
+.container{
+  padding-top:20px;
+  width: 980px;
+  margin: 0px auto;
+}
+
+//*Signup
+
+.signup-form{
+  margin-left: 380px;
+  width: 330px;
+  .form-button{
+    margin-top: 10px;
+    margin-left: 75px;
+  }
+}
+
+.edit-form{
+  margin-left: 380px;
+  width: 330px;
+  .form-button{
+    margin-top: 10px;
+    margin-left: 75px;
+}
+   .gravatar{
+     margin-top: 5px;
+   }
+}
+
+.edit-form-button{
+  margin-top:75px;
+  margin-left: 45px;
+}
+
+/* Users index */
+
+.users {
+  list-style-type: none;
+  margin: 0px auto;
+  padding: 0px;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+  a{
+    text-decoration: none;
+    color: #666666;
+    &:hover{
+      color:#002a80;
+    }
+  }
+}
+
+.pagination{
+  border:1px solid #ddd;
+  padding: 5px;
+  width: 400px;
+
+  .previous_page{
+    border-right: 1px solid #d9d9d9;
+    padding: 2px;
+    padding-right: 12px;
+  }
+  a{
+    border-right: 1px solid #d9d9d9;
+    padding: 2px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .current{
+    border-right: 1px solid #d9d9d9;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}

@@ -1,0 +1,48 @@
+<div class="main-container">
+  <h1>All Employees</h1>
+
+
+   <div class="navigation-list">
+     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add new Employee", new_employee_path %></li>
+     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
+     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
+   </div>
+
+  <div class="employees-list">
+  <table>
+    <tr>
+      <th>Emp_id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Date of Joining</th>
+      <th>Options</th>
+    </tr>
+
+      <% @employees.each do |emp| %>
+      <tr>
+        <td><%= link_to emp.emp_id, emp %></td>
+        <td><%= link_to emp.name, emp %></td>
+        <td><%= link_to emp.gender, emp %></td>
+        <td><%= link_to emp.date_of_joining, emp %></td>
+        <td><%= link_to "show", emp%>
+            <%= link_to "edit", edit_employee_path(emp) %>
+            <%= link_to "delete", emp, method: :delete,
+                data: { confirm: "You sure?" } %>
+
+        </td>
+      </tr>
+      <% end %>
+
+  </table>
+
+  </div>
+
+  <div class="cls"></div>
+</div>
+
+
+
+
+
+
+

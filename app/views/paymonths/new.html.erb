@@ -1,0 +1,31 @@
+<div class="main-container">
+  <h1>Create paymonth</h1>
+
+  <div class="navigation-list">
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Employees", employees_path%></li>
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
+  </div>
+
+  <div class="employees-list">
+  <div class="create-month-form">
+    <div class="form-label-header"><label>Create New Paymonth</label></div>
+
+      <%= form_for (@paymonth) do |d| %>
+        <div class="form-content-label">
+        <%= d.label "Month Name" %>
+        </div>
+        <div class="form-content-fieldbox">
+        <%= d.text_field :month_year %>
+        </div>
+        <%= d.label "(Eg: Jan/2014)", class:"eg-label" %>
+        <div class="cls"></div>
+        <%= d.submit "Submit", class:"submit-button"%>
+        <div class="cls"></div>
+      <% end %>
+
+  </div>
+</div>
+
+<div class="cls"></div>
+</div>

@@ -1,0 +1,45 @@
+<div class="main-container">
+  <h1>Edit User Details</h1>
+      <div class="edit-form">
+
+    <%= form_for(@user) do |f|%>
+        <%= render 'shared/error_messages'%>
+
+        <div class="form-label">
+          <%= f.label :name %>
+        </div>
+        <div class="form-fieldbox">
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="form-label">
+          <%= f.label :email %>
+        </div>
+        <div class="form-fieldbox">
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="form-label">
+          <%= f.label :password %>
+        </div>
+        <div class="form-fieldbox">
+          <%= f.password_field :password %>
+        </div>
+
+        <div class="form-label">
+          <%= f.label :password_confirmation %>
+        </div>
+        <div class="form-fieldbox">
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <%= gravatar_for @user %>
+        <a href="http://gravatar.com/emails">change</a>
+
+        <div class="edit-form-button">
+          <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+        </div>
+
+      <% end %>
+  </div>
+</div>

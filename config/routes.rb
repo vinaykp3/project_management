@@ -1,5 +1,13 @@
 SimpleRailsApp::Application.routes.draw do
-  get "users/new"
+  resources :users #controller name
+  resources :paymonths
+  resources :projects
+  resources :employees
+  resources :project_employees do
+    get "fetch_employees_for_selected_project", :on => :collection
+  end
+
+  root 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

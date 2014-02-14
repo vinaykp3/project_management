@@ -1,0 +1,51 @@
+<div class="main-container">
+
+  <div class="navigation-list">
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add new Employee", new_employee_path %></li>
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
+  </div>
+
+  <div class="add-employee-project-table">
+
+    <%= form_for(@project_employee) do |p|%>
+
+    <div class="project-list-selectbox">
+
+      <label>Select Project</label>
+
+      <%= select_tag "project_employee[project_id]", options_from_collection_for_select(@project_fetch_result, "id", "project_name") %>
+
+      <%= p.submit "Submit" %>
+    </div>
+
+    <div class="employee-list">
+
+      <table>
+        <th><input type="checkbox"></th>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th>Gender</th>
+        <th>Date Of Joining</th>
+
+        <% @employee_fetch_result.each do |emp|%>
+        <tr>
+          <th><%= check_box_tag 'project_employee[employee_ids][]', emp.id%></th>
+          <td><%= emp.emp_id %></td>
+          <td><%= emp.name %></td>
+          <td><%= emp.gender %></td>
+          <td><%= emp.date_of_joining %></td>
+        </tr>
+       <% end %>
+      </table>
+
+
+    </div>
+
+
+ <% end %>
+  </div>
+
+  <div class="cls"></div>
+
+</div>

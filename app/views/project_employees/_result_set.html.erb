@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Emp Id</th>
+    <th>Emp Name</th>
+    <th>Gender</th>
+    <th>Date Of Joining</th>
+  </tr>
+  <% @employees.each do |emp| %>
+      <tr>
+        <td><%= emp.emp_id  %></td>
+        <td class="result_list_name_style"><%= emp.name  %></td>
+        <td><%= emp.gender  %></td>
+        <td><%= emp.date_of_joining  %></td>
+      </tr>
+    <% end %>
+</table>

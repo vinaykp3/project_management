@@ -1,0 +1,40 @@
+// Place all the styles related to the Paymonths controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.create-month-form{
+  width: 390px;
+  border: 1px solid #ddd;
+  margin-left: 295px;
+  border-radius: 6px;
+}
+.form-label-header{
+  background-color: #4682b4;
+  color: #fff;
+  padding: 5px;
+  font-size: 18px;
+}
+.form-content-label{
+  padding: 5px;
+  margin-left: 20px;
+  float: left;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.form-content-fieldbox{
+  float: left;
+  margin-left: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.eg-label{
+  margin-left: 150px;
+  color: #cc0000;
+}
+.submit-button{
+  margin-left: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cls{
+  clear: both;
+}

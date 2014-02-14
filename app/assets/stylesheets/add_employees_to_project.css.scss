@@ -1,0 +1,56 @@
+// Place all the styles related to the AddEmployeesToProject controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.add-employee-project-table{
+  float: left;
+  width: 670px;
+//  background-color: #d9d9d9;
+  margin-left: 6px;
+}
+
+.project-list-selectbox{
+  width: 670px;
+  background-color:#ddd;
+  font-size: 16px;
+  label{
+    margin-left: 5px;
+  }
+  select{
+    margin-left: 5px;
+  }
+}
+
+.employee-list{
+  background-color: #5bc0de;
+  padding-bottom: 2px;
+  table{
+    width: 660px;
+    margin-left: 5px;
+    border: none;
+    text-align: left;
+    th{
+      padding-left: 5px;
+    }
+    td{
+      padding-left: 5px;
+    }
+  }
+}
+
+.result_list_style{
+  background-color: #5bc0de;
+  padding-bottom: 2px;
+  table{
+    width: 660px;
+    margin-left: 5px;
+    border: none;
+    text-align: left;
+    th{
+      padding-left: 5px;
+    }
+    td{
+      padding-left: 5px;
+    }
+  }
+}

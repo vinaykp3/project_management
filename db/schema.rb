@@ -11,10 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204120806) do
+ActiveRecord::Schema.define(version: 20140212131418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "employee_projects", force: true do |t|
+    t.integer  "employee_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", force: true do |t|
+    t.integer  "emp_id"
+    t.string   "name"
+    t.string   "gender"
+    t.date     "date_of_joining"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "paymonths", force: true do |t|
+    t.string   "month_year"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_employees", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "project_name"
+    t.date     "project_commence_date"
+    t.date     "project_completion_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -22,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140204120806) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
