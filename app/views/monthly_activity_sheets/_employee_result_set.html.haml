@@ -1,0 +1,8 @@
+%table
+  %tr
+    %th Emp Id
+    %th No of Present Days
+  - @employees_fetch_result_set.each do |emp|
+    %tr
+      %td= emp.name
+      %td=text_field_tag "emp_id_present_days[#{emp.id}]"

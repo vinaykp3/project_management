@@ -1,0 +1,23 @@
+.main-container
+  .navigation-list
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Assign Paydays to Employees for Project", new_monthly_activity_sheet_path
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show Employee", employees_path
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show All Paymonths", paymonths_path
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show All Projects", projects_path
+  .add-employee-project-table
+    .project-list-selectbox
+      %label Select Month
+      = select_tag "month_id", options_from_collection_for_select(@monthly_activity_months_fetch_result, "id", "month_year")
+      %label Select Project
+      = select_tag "project_id", options_from_collection_for_select(@monthly_activity_project_fetch_result, "id", "project_name"),
+        :onchange =>"employee_project_month_result_list('monthly_activity_sheets/fetch_employees_for_month_project');"
+    #employee_result_list.result_list_style
+  .cls

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+.form-button{
+    margin-top: 10px;
+    margin-left: 75px;
+}

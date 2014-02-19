@@ -1,0 +1,8 @@
+%table
+  %tr
+    %th Employee Name
+    %th No of Present Days
+  - @project_month_result_set.each do |emp|
+    %tr
+      %td= emp.name
+      %td= emp.present_days

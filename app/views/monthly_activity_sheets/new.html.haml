@@ -1,0 +1,18 @@
+.main-container
+  .navigation-list
+
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show Monthly Activity Sheet Details", monthly_activity_sheets_path
+
+  .add-employee-project-table
+    = form_for(@monthly_activity) do |p|
+      .project-list-selectbox
+        %label Select Month
+        = select_tag "month_id", options_from_collection_for_select(@months_fetch_result, "id", "month_year")
+        %label Select Project
+        = select_tag "project_id", options_from_collection_for_select(@projects_fetch_result, "id", "project_name"),
+        :onchange => "employee_project_select_result_list('#{fetch_employees_for_project_selected_monthly_activity_sheets_path}');"
+        = p.submit "Submit"
+      #result-list.employee-list
+  .cls

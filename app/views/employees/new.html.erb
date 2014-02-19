@@ -3,8 +3,6 @@
 
   <div class="navigation-list">
     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Employees", employees_path%></li>
-    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
-    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
   </div>
 
   <div class="employees-list">
@@ -12,6 +10,7 @@
 
     <%= form_for(@employee) do |f|%>
         <%= render 'shared/error_messages'%>
+        <div class="form-mainbox2">
         <div class="form-label">
           <%= f.label :emp_id %>
         </div>
@@ -25,7 +24,9 @@
         <div class="form-fieldbox">
           <%= f.text_field :name %>
         </div>
+        </div>
 
+        <div class="form-mainbox2">
         <div class="form-label">
           <%= f.label :gender %>
         </div>
@@ -39,8 +40,8 @@
         <div class="form-fieldbox">
           <%= f.date_select :date_of_joining %>
         </div>
-
-        <div class="hello">hello</div>
+        </div>
+        <div class="cls"></div>
 
         <div class="form-button">
           <%= f.submit "Submit", class: "btn btn-large btn-primary" %>

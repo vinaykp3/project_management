@@ -2,6 +2,7 @@
 
   <div class="navigation-list">
     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add new Employee", new_employee_path %></li>
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add Employees To Project", new_project_employee_path %></li>
     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
   </div>
@@ -12,11 +13,11 @@
 
       <label>Select Project</label>
 
-      <%= select_tag "project_employee[project_id]", options_from_collection_for_select(@employees_project_fetch_result,  "id", "project_name"), :onchange => "employee_result_list('#{fetch_employees_for_selected_project_project_employees_path}');" %>
+      <%= select_tag "project_employee[project_id]", options_from_collection_for_select(@employees_project_fetch_result,  "id", "project_name"), :onchange => "employee_result_list('project_employees/fetch_employees_for_selected_project');" %>
 
     </div>
 
-      <div id="employee_result_list" class="result_list_style">
+      <div id="result_list" class="result_list_style">
 
       </div>
 

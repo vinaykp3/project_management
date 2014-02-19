@@ -1,10 +1,15 @@
 SimpleRailsApp::Application.routes.draw do
+
   resources :users #controller name
   resources :paymonths
   resources :projects
   resources :employees
   resources :project_employees do
     get "fetch_employees_for_selected_project", :on => :collection
+  end
+  resources :monthly_activity_sheets do
+    get "fetch_employees_for_month_project", :on => :collection
+    get "fetch_employees_for_project_selected", :on => :collection
   end
 
   root 'users#new'

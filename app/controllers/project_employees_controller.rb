@@ -26,7 +26,8 @@ class ProjectEmployeesController < ApplicationController
   end
 
   def fetch_employees_for_selected_project
-    @employees = Employee.joins("left join project_employees on project_employees.employee_id = employees.id where project_employees.project_id = '#{params[:selected]}'")
+    @result = ProjectEmployee.new
+    @employees = @result.employee_result_set params[:selected]
     render :partial => 'project_employees/result_set'
   end
 
