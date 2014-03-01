@@ -1,8 +1,8 @@
 // Place all the styles related to the Employees controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navigation-list{
-  float: left;
+
   width: 300px;
   border: 2px solid #ddd;
   li{
@@ -18,29 +18,60 @@
     margin-right: 5px;
   }
 }
+.navigation-list1{
+  width: 300px;
+  border: 2px solid #ddd;
+  margin-top: 8px;
+  li{
+    list-style-type: none;
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+  }
+  a{
+    text-decoration: none;
+    color: #0088cc;
+    &:hover{
+     color: #5bb65b;
+    }
+  }
+  .arrow{
+    margin-right: 5px;
+  }
+}
+
+.navigation-lists{
+  width: 300px;
+  float: left;
+}
 
 .employees-list{
   width: 505px;
   float: left;
-  margin-left: 4px;
+  margin-left: 10px;
+
 }
 
 table{
-  width: 500px;
+  width: 490px;
   border:1px solid #ddd;
   font-size: 14px;
   //  background-color: #d9d9d9;
   padding-bottom: 1px;
   th{
     border: 1px solid #ddd;
-    padding-left: 40px;
-    padding-right: 40px;
+//    padding-left: 30px;
+    padding: 0 38px 0 39px;
+//    padding-right: 45px;
     background-color: #f1f1f1;
     color: #444444;
+    text-align: center;
   }
   td{
     border: 1px solid #ddd;
     background-color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
     a{
       text-decoration: none;
       margin-left: 5px;

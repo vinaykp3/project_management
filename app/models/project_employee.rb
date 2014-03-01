@@ -19,7 +19,7 @@ class ProjectEmployee < ActiveRecord::Base
   end
 
   def employee_result_set selected
-    Employee.joins("left join project_employees on project_employees.employee_id = employees.id where project_employees.project_id = '#{selected}'")
+    ProjectEmployee.select("employees.id,employees.emp_id,employees.name,employees.gender,employees.date_of_joining").joins("left join employees on employees.id = project_employees.employee_id where project_employees.project_id = '#{selected}'")
   end
 
 end

@@ -19,6 +19,17 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.paginate(page: params[:page])
+    file= Employee.generate_excel
+    respond_to do |format|
+      format.html
+      format.xlsx{
+        send_file  file.path,
+                   :filename => File.basename(file),
+                   :type => File.ftype(file),
+                   :disposition => 'attachment'
+      }
+    end
+
   end
 
   def edit

@@ -9,7 +9,8 @@ SimpleRailsApp::Application.routes.draw do
   end
   resources :monthly_activity_sheets do
     get "fetch_employees_for_month_project", :on => :collection
-    get "fetch_employees_for_project_selected", :on => :collection
+    get "fetch_assign_employees_to_project_selected", :on => :collection
+    get "monthly_activity", :on => :collection
   end
 
   root 'users#new'

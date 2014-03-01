@@ -7,5 +7,5 @@ window.employee_project_month_result_list = (path) ->
   $('#employee_result_list').load(path+"?month_selected="+month_selected+"&project_selected="+project_selected)
 
 window.employee_project_select_result_list = (path) ->
-  project_selected = $('#project_id').val()
-  $('#result-list').load(path+"?project_selected="+project_selected)
+  selected = $('#project_id').val()
+  $('#result-list').load(path+"?selected="+selected)

@@ -1,3 +1,34 @@
+<script type="application/javascript">
+function check_value(source){
+     checkboxes = document.getElementsByName('project_employee[employee_ids][]');
+     for(var i= 0, n = checkboxes.length;i<n;i++)
+       checkboxes[i].checked = source.checked;
+
+}
+function uncheck_value(source){
+    main_checkbox = document.getElementById('master_checkbox');
+    var count = 0
+    checkboxes = document.getElementsByName('project_employee[employee_ids][]');
+    for(var i= 1, n = checkboxes.length;i<=n;i++)
+    {
+        if($("#hi_"+i).is(":checked") == true)
+        {
+            count++;
+        }
+    }
+    if(count == checkboxes.length)
+    {
+        main_checkbox.checked = true
+    }
+    else
+    {
+        main_checkbox.checked = false
+    }
+}
+</script>
+
+
+
 <div class="main-container">
 
   <div class="navigation-list">
@@ -20,20 +51,21 @@
     <div class="employee-list">
 
       <table>
-        <th><input type="checkbox"></th>
+        <th><input type="checkbox" onclick="check_value(this)" id="master_checkbox"></th>
         <th>Emp Id</th>
         <th>Emp Name</th>
         <th>Gender</th>
         <th>Date Of Joining</th>
-
+        <% count = 1 %>
         <% @employee_fetch_result.each do |emp|%>
         <tr>
-          <th><%= check_box_tag 'project_employee[employee_ids][]', emp.id%></th>
+          <th><%= check_box_tag 'project_employee[employee_ids][]',emp.id,false,onclick: "uncheck_value('#{emp.id}')",id: "hi_"+count.to_s+"", :class=>"sub_check" %></th>
           <td><%= emp.emp_id %></td>
           <td><%= emp.name %></td>
           <td><%= emp.gender %></td>
           <td><%= emp.date_of_joining %></td>
         </tr>
+        <% count = count + 1 %>
        <% end %>
       </table>
 

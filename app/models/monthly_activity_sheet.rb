@@ -1,4 +1,5 @@
 class MonthlyActivitySheet < ActiveRecord::Base
+  #acts_as_xlsx
 
   def employees_fetch_details
     Employee.all
@@ -18,11 +19,29 @@ class MonthlyActivitySheet < ActiveRecord::Base
     end
   end
 
+
   def employee_month_project_result_set (month_selected,project_selected)
-    Employee.select("employees.name,monthly_activity_sheets.present_days").joins("left join monthly_activity_sheets on monthly_activity_sheets.employee_id = employees.id where monthly_activity_sheets.project_id = '#{project_selected}' and monthly_activity_sheets.month_id = '#{month_selected}'")
+    MonthlyActivitySheet.select("employees.name,monthly_activity_sheets.present_days").joins("full join employees on employees.id = monthly_activity_sheets.employee_id where monthly_activity_sheets.project_id = '#{project_selected}' and monthly_activity_sheets.month_id = '#{month_selected}'")
   end
 
-  def employee_result_set(project_selected)
-    Employee.joins("left join project_employees on project_employees.employee_id = employees.id where project_employees.project_id = '#{project_selected}'")
+  def generate_monthly_excel_template (month_selected,project_selected)
+    require "axlsx"
+
+    package = Axlsx::Package.new
+    wb = package.workbook
+    employee_details_result =  MonthlyActivitySheet.select("employees.name,projects.project_name,paymonths.month_year,monthly_activity_sheets.present_days").joins("inner join paymonths on paymonths.id = monthly_activity_sheets.month_id").joins("inner join projects on projects.id = monthly_activity_sheets.project_id").joins("full join employees on employees.id = monthly_activity_sheets.employee_id").where("monthly_activity_sheets.project_id = '#{project_selected}' and monthly_activity_sheets.month_id = '#{month_selected}'")
+    wb.add_worksheet(name: "Monthly Activity Report") do |sheet|
+      sheet.add_row ['Employee Name', 'Project Name', 'Month Year', 'Present Days']
+      employee_details_result.each do |employee_details|
+        sheet.add_row [employee_details.name, employee_details.project_name, employee_details.month_year, employee_details.present_days]
+      end
+    end
+    monthly_excel_xls ="#{Rails.root}/public/Monthly.xlsx"
+    file = File.new(monthly_excel_xls, "w")
+    package.serialize(file)
+    return file
+
   end
+
+
 end

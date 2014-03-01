@@ -1,47 +1,7 @@
 // Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $grayLighter: #f3f3f3;
-
-body{
-  margin:0px auto;
-  padding:0px;
-  background-color: #ffffff;
-  width: 100%;
-  font-size: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-header{
-  background-color: #000000;
-  margin: 0px auto;
-  padding:0px;
-}
-
-.sub-header{
-  width: 980px;
-  margin: 0px auto;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 18px;
-}
-
-.main-footer{
-  background-color: #000000;
-  margin: 0px auto;
-  padding:0px;
-  width: 980px;
-  margin-top: 20px;
-}
-
-.sub-footer{
-  margin: 0px auto;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 18px;
-}
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -69,8 +29,9 @@ header{
   margin: 0px auto;
   h1{
     text-align: center;
-    font-weight: bold;
+//    font-weight: bold;
     font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+    font-size: 30px;
   }
 }
 
@@ -117,11 +78,11 @@ header{
 //*Signup
 
 .signup-form{
-  margin-left: 380px;
+  margin-left: 100px;
   width: 330px;
   .form-button{
     margin-top: 10px;
-    margin-left: 75px;
+    margin-left: 35px;
   }
 }
 

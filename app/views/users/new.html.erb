@@ -1,41 +1,31 @@
 <div class="main-container">
-  <h1>SIGN UP!</h1>
-  <div class="signup-form">
+  <div class="company-logo">
+    <%= image_tag("relyonlogo.png", :alt=>"relyon", :class => "company-logo-style") %>
+  </div>
+
+  <div class="form-signin">
 
       <%= form_for(@user) do |f|%>
         <%= render 'shared/error_messages'%>
-            <div class="form-label">
-              <%= f.label :name %>
-            </div>
+
             <div class="form-fieldbox">
-              <%= f.text_field :name %>
+              <%= f.text_field :name, :class => "form-control",:placeholder => "User Name", :autofocus => true %>
             </div>
 
-            <div class="form-label">
-              <%= f.label :email %>
-            </div>
             <div class="form-fieldbox">
-              <%= f.text_field :email %>
+              <%= f.text_field :email, :class => "form-control",:placeholder => "Email address" %>
             </div>
 
-
-            <div class="form-label">
-              <%= f.label :password %>
-            </div>
             <div class="form-fieldbox">
-              <%= f.password_field :password %>
+              <%= f.password_field :password, :class => "form-control",:placeholder => "Password" %>
             </div>
 
-
-            <div class="form-label">
-               <%= f.label :password_confirmation %>
-            </div>
             <div class="form-fieldbox">
-               <%= f.password_field :password_confirmation %>
+               <%= f.password_field :password_confirmation, :class => "form-control",:placeholder => "Confirm Password" %>
             </div>
 
             <div class="form-button">
-            <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+            <%= f.submit "Submit", :class=>"btn btn-lg btn-primary btn-block" %>
             </div>
 
     <% end %>

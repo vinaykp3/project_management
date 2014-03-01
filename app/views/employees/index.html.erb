@@ -1,18 +1,23 @@
 <div class="main-container">
   <h1>All Employees</h1>
 
-
+<div class="navigation-lists">
    <div class="navigation-list">
      <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add new Employee", new_employee_path %></li>
-     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Add Employees To Project", new_project_employee_path %></li>
+     <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Show Monthly Activity Sheet ", monthly_activity_sheets_path %></li>
      <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Paymonths", paymonths_path%></li>
      <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%= link_to "Show All Projects", projects_path%></li>
    </div>
 
+  <div class="navigation-list1">
+    <li><%= image_tag("arrow.png", :alt=>"arrow", :class => "arrow") %><%=  link_to "Download Employee Excel Sheet", employees_path(format: "xlsx") %></li>
+  </div>
+</div>
+
   <div class="employees-list">
   <table>
     <tr>
-      <th>Emp_id</th>
+      <th>Employee Id</th>
       <th>Name</th>
       <th>Gender</th>
       <th>Date of Joining</th>

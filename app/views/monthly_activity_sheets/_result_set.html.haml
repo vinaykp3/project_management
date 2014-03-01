@@ -1,4 +1,18 @@
+:javascript
+  function generate_excel()  {
+    var month_selected = $('#month_id').val()
+    var project_selected = $('#project_id').val()
+    var format = "xlsx"
+
+    $.ajax({
+      type:"get",
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      url:"#{fetch_employees_for_month_project_monthly_activity_sheets_path}",
+      data:"month_selected="+month_selected+"&project_selected="+project_selected+"&format="+format
+    });
+  }
 %table
+  -#= link_to "Download Excel Report", fetch_employees_for_month_project_monthly_activity_sheets_path(format: "xlsx")
   %tr
     %th Employee Name
     %th No of Present Days
@@ -6,3 +20,8 @@
     %tr
       %td= emp.name
       %td= emp.present_days
+    %tr
+  = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+  = link_to "Download Monthly Excel Report",fetch_employees_for_month_project_monthly_activity_sheets_path(format: "xlsx",month_selected: @month,project_selected: @project)#, :onclick => "generate_excel();"
+
+

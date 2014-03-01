@@ -22,15 +22,32 @@ class MonthlyActivitySheetsController < ApplicationController
     @monthly_activity_project_fetch_result = @monthly_activity.projects_fetch_details
   end
 
+  #def monthly_activity
+  #
+  #end
+
   def fetch_employees_for_month_project
-    @monthly_activity = MonthlyActivitySheet.new
-    @project_month_result_set = @monthly_activity.employee_month_project_result_set(params[:month_selected],params[:project_selected])
-    render :partial => 'monthly_activity_sheets/result_set'
+    if params[:format].nil?
+      @month=params[:month_selected]
+      @project=params[:project_selected]
+      @monthly_activity = MonthlyActivitySheet.new
+      @project_month_result_set = @monthly_activity.employee_month_project_result_set(params[:month_selected], params[:project_selected])
+      render partial: "monthly_activity_sheets/result_set"
+    else
+      @monthly_activity = MonthlyActivitySheet.new
+      file = @monthly_activity.generate_monthly_excel_template(params[:month_selected], params[:project_selected])
+      send_file  file.path,
+                 :filename => File.basename(file),
+                 :type => File.ftype(file),
+                 :disposition => 'attachment'
+    end
   end
 
-  def fetch_employees_for_project_selected
+  def fetch_assign_employees_to_project_selected
     @result = ProjectEmployee.new
-    @employees_fetch_result_set = @result.employee_result_set params[:project_selected]
+    @employees_fetch_result_set = @result.employee_result_set params[:selected]
     render :partial => 'monthly_activity_sheets/employee_result_set'
   end
+
 end
+
