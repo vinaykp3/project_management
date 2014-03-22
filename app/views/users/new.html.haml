@@ -1,0 +1,16 @@
+.main-container
+  .company-logo
+    = image_tag("relyonlogo.png", :alt=>"relyon", :class => "company-logo-style")
+  .form-signin
+    = form_for(@user) do |f|
+      = render 'shared/error_messages'
+      .form-fieldbox
+        = f.text_field :name, :class => "form-control",:placeholder => "User Name", :autofocus => true
+      .form-fieldbox
+        = f.text_field :email, :class => "form-control",:placeholder => "Email address"
+      .form-fieldbox
+        = f.password_field :password, :class => "form-control",:placeholder => "Password"
+      .form-fieldbox
+        = f.password_field :password_confirmation, :class => "form-control",:placeholder => "Confirm Password"
+      .form-button
+        = f.submit "Submit",:class=>"btn btn-lg btn-primary btn-block"

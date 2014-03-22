@@ -5,17 +5,20 @@ class PaymonthsController < ApplicationController
   end
 
   def create
-   @paydate = Paymonth.to_from_date_create paymonth_params[:month_year]
-   if @paydate.save!
+   if params[:paymonth][:month_year]!= ""
+     start_date, end_date = Paymonth.to_from_date_create paymonth_params[:month_year]
+     params[:paymonth][:from_date] = start_date
+     params[:paymonth][:to_date] = end_date
+   end
+   @paydate = Paymonth.new(paymonth_params)
+   binding.pry
+   if @paydate.save
       flash[:success] = "New paymonth has been created"
       redirect_to paymonths_url
-    else
-      render'new'
+   else
+      flash[:danger] = @paydate.errors.full_messages
+      redirect_to new_paymonth_path
     end
-  end
-
-  def show
-   @paymonth = Paymonth.find(params[:id])
   end
 
   def index

@@ -1,0 +1,25 @@
+.main-container
+  %h1 Edit User Details
+  .edit-form
+    = form_for(@user) do |f|
+      = render 'shared/error_messages'
+      .form-label
+        = f.label :name
+      .form-fieldbox
+        = f.text_field :name
+      .form-label
+        = f.label :email
+      .form-fieldbox
+        = f.text_field :email
+      .form-label
+        = f.label :password
+      .form-fieldbox
+        = f.password_field :password
+      .form-label
+        = f.label :password_confirmation
+      .form-fieldbox
+        = f.password_field :password_confirmation
+      = gravatar_for @user
+      %a{:href => "http://gravatar.com/emails"} change
+      .edit-form-button
+        = f.submit "Save Changes", class: "btn btn-large btn-primary"

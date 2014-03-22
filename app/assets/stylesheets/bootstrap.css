@@ -1409,8 +1409,7 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
-  margin-bottom: 20px;
+  width: 670px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -4624,6 +4623,10 @@ a.thumbnail.active {
 .list-group {
   padding-left: 0;
   margin-bottom: 20px;
+  background-color: #DADADA;
+}
+.list-group-font{
+   color: #428bca;
 }
 .list-group-item {
   position: relative;

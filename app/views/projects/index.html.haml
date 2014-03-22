@@ -1,0 +1,24 @@
+.main-container
+  %h1 All Projects
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Add New Project", new_project_path, class: "list-group-font"
+  .employees-list
+    %table.table.table-striped.table-hover
+      %tr
+        %th Project Name
+        %th Project Commence Date
+        %th Project Completion Date
+        %th Options
+      - @project.each do |proj|
+        %tr
+          %td= proj.project_name
+          %td= proj.project_commence_date.strftime("%d %b %y")
+          %td= proj.project_completion_date.strftime("%d %b %y")
+          %td
+            = link_to image_tag("profile.png",size: "16"), proj
+            = link_to image_tag("delete.png"), proj, method: :delete, |
+              data: { confirm: "You sure?" }           |
+  .cls

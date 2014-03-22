@@ -1,0 +1,58 @@
+:javascript
+  function check_value(source){
+  checkboxes = document.getElementsByName('project_employee[employee_ids][]');
+  for(var i= 0, n = checkboxes.length;i<n;i++)
+  checkboxes[i].checked = source.checked;
+
+  }
+  function uncheck_value(source){
+  main_checkbox = document.getElementById('master_checkbox');
+  var count = 0
+  checkboxes = document.getElementsByName('project_employee[employee_ids][]');
+  for(var i= 1, n = checkboxes.length;i<=n;i++)
+  {
+  if($("#hi_"+i).is(":checked") == true)
+  {
+  count++;
+  }
+  }
+  if(count == checkboxes.length)
+  {
+  main_checkbox.checked = true
+  }
+  else
+  {
+  main_checkbox.checked = false
+  }
+  }
+.main-container
+  %h1 Employees Assigned To Project
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Show Employees Assigned to Project", project_employees_path, class: "list-group-font"
+  .add-employee-project-table
+    = form_for(@project_employee) do |p|
+      .project-list-selectbox
+        %label Select Project
+        = select_tag "project_employee[project_id]", options_from_collection_for_select(@project_fetch_result, "id", "project_name")
+        = p.submit "Submit"
+      .employee-list
+        %table.table.table-striped.table-hover
+          %th
+            %input#master_checkbox{onclick: "check_value(this)", type: "checkbox"}/
+          %th Emp Id
+          %th Emp Name
+          %th Gender
+          %th Date Of Joining
+          - count = 1
+          - @employee_fetch_result.each do |emp|
+            %tr
+              %th= check_box_tag 'project_employee[employee_ids][]',emp.id,false,onclick: "uncheck_value('#{emp.id}')",id: "hi_"+count.to_s+"", :class=>"sub_check"
+              %td= emp.emp_id
+              %td= emp.name
+              %td= emp.gender
+              %td= emp.date_of_joining.strftime("%d %b %y")
+            - count = count + 1
+  .cls

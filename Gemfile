@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
 gem 'rails', '4.0.2'
+gem 'sass-rails', '4.0.1'
+gem 'uglifier', '2.1.1'
+gem 'coffee-rails', '4.0.1'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'acts_as_xlsx'
@@ -15,9 +17,6 @@ group :development, :test do
   gem 'childprocess', '0.3.6'
   gem 'factory_girl_rails'
   gem 'roo'
-  gem 'sass-rails', '4.0.1'
-  gem 'uglifier', '2.1.1'
-  gem 'coffee-rails', '4.0.1'
   gem 'jquery-rails', '3.0.4'
   gem 'turbolinks', '1.1.1'
   gem 'jbuilder', '1.0.2'
@@ -27,8 +26,6 @@ group :development, :test do
   gem 'faker', '1.1.2'
   gem 'will_paginate', '3.0.4'
   gem 'pry'
-
-
 end
 
 group :test do

@@ -10,7 +10,7 @@ class ProjectEmployee < ActiveRecord::Base
 
   def save_project_employees(project_id, employee_ids)
     employee_ids.each do |employee_id|
-      ProjectEmployee.create(project_id: project_id, employee_id: employee_id)
+    ProjectEmployee.create(project_id: project_id, employee_id: employee_id)
     end
   end
 

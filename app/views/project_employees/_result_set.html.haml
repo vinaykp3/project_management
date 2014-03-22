@@ -1,0 +1,12 @@
+%table.table.table-striped.table-hover
+  %tr
+    %th Emp Id
+    %th Emp Name
+    %th Gender
+    %th Date Of Joining
+  - @employees.each do |emp|
+    %tr
+      %td= emp.emp_id
+      %td.result_list_name_style= emp.name
+      %td= emp.gender
+      %td= emp.date_of_joining.strftime("%d %b %y")

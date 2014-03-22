@@ -1,0 +1,34 @@
+:javascript
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "d/M/yy",
+      numberOfMonths: 3,
+      showButtonPanel: true
+    });
+  });
+
+- if signed_in?
+  .main-container
+    %h1 Create New Employee
+    .navigation-lists
+      .list-group
+        %li.list-group-item.list-group-font
+          = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+          = link_to "Show All Employees", employees_path, class: "list-group-font"
+    .employee-form-signup
+      = form_for(@employee) do |f|
+        .form-fieldbox
+          = f.text_field :emp_id, :class => "employee-form-control",:placeholder => "Employee ID", :autofocus => true
+        .form-fieldbox
+          = f.text_field :name, :class => "employee-form-control",:placeholder => "User Name"
+        .form-fieldbox
+          = f.select :gender,options_for_select([['Male','Male'],['Female','Female']]), {:prompt=>"Select gender"}, :class => "gender-select-box"
+        .form-fieldbox
+          = f.text_field :date_of_joining,:id => "datepicker",:class => "employee-form-control",:placeholder => "Select Date Of Joining", :readonly => true
+        .cls
+        .form-button
+          = f.submit "Submit", class: "btn btn-large btn-primary"
+  .cls
+- else
+  .main-container
+    %h1 You have to be logged in to view this page

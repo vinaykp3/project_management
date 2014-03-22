@@ -1,0 +1,19 @@
+.main-container
+  %h1 Create paymonth
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Show All Paymonths", paymonths_path, class: "list-group-font"
+  .employees-list
+    .create-month-form
+      .form-label-header
+        %label Create New Paymonth
+      = form_for (@paymonth) do |d|
+        .form-content-fieldbox
+          = d.text_field :month_year,:class => "paymonth-form-control",:placeholder => "Enter Month/Year", :autofocus => true
+        = d.label "(Eg: Jan/2014)", class:"eg-label"
+        .cls
+        = d.submit "Submit", class:"submit-button"
+        .cls
+  .cls

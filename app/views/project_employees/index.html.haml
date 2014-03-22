@@ -1,0 +1,13 @@
+.main-container
+  %h1 Employees Assigned To Project
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Assign Employee To Project", new_project_employee_path, class: "list-group-font"
+  .add-employee-project-table
+    .project-list-selectbox
+      %label Select Project
+      = select_tag "project_employee[project_id]", options_from_collection_for_select(@employees_project_fetch_result,  "id", "project_name"), :onchange => "employee_result_list('project_employees/fetch_employees_for_selected_project');"
+    #result_list.result_list_style
+  .cls

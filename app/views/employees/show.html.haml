@@ -1,0 +1,23 @@
+- if signed_in?
+  .main-container
+    .navigation-lists
+      .list-group
+        %li.list-group-item.list-group-font
+          = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+          = link_to "Show All Employees", employees_path, class: "list-group-font"
+    .employees-list
+      %table.table.table-striped.table-hover
+        %tr
+          %th Employee Id
+          %th Name
+          %th Gender
+          %th Date of Joining
+          %tr
+            %td= @employee.emp_id
+            %td= @employee.name
+            %td= @employee.gender
+            %td= @employee.date_of_joining
+    .cls
+- else
+  .main-container
+    %h1 You have to be logged in to view this page

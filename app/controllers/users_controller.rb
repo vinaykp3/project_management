@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -11,9 +12,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to Simple Rails App"
-      redirect_to @users
+      redirect_to new_session_path
     else
-      render 'new'
+      flash[:danger] = @user.errors.full_messages
+      redirect_to root_url
     end
   end
 
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile Updated"
-      redirect_to @user
+      redirect_to user_path
     else
       render 'edit'
     end
@@ -47,4 +49,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
+
 end

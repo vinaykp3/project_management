@@ -1,0 +1,24 @@
+.main-container
+  %h1 All users
+  .navigation-list
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Add New User", new_user_path
+  .employees-list
+    %table.table.table-striped.table-hover
+      %tr
+        %th User Image
+        %th Name
+        %th Email
+        %th Options
+      - @users.each do |user|
+        %tr
+          %td= gravatar_for user, size: 62
+          %td= link_to user.name, user
+          %td= link_to user.email, user
+          %td
+            = link_to "show", user
+            = link_to "edit", edit_user_path(user)
+            = link_to "delete", user, method: :delete, |
+              data: { confirm: "You sure?" }           |
+  .cls

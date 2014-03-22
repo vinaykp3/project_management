@@ -1,0 +1,30 @@
+.main-container
+  %h1 Edit Project
+  .navigation-list
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show All Employees", employees_path
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show All Paymonths", paymonths_path
+    %li
+      = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+      = link_to "Show All Projects", projects_path
+  .employees-list
+    .signup-form
+      = form_for(@project) do |f|
+        .form-label
+          = f.label :project_name
+        .form-fieldbox
+          = f.text_field :project_name
+        .form-label
+          = f.label :project_commence_date
+        .form-fieldbox
+          = f.text_field :project_commence_date
+        .form-label
+          = f.label :project_completion_date
+        .form-fieldbox
+          = f.text_field  :project_completion_date
+        .form-button
+          = f.submit "Update", class: "btn btn-large btn-primary"
+  .cls

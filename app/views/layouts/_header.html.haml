@@ -1,35 +1,43 @@
 %header
   .main-header
-    .sub-header
-      %ul.nav.nav-tabs.nav-justified
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Employees
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to "Employees List", employees_path
-            %li
-              = link_to "Monthly Activity Sheet", monthly_activity_sheets_path
-            %li.divider
-            %li
-              %a{href: "#"} Trash
-        %li
-          = link_to "Paymonths", paymonths_path
+    - if signed_in?
+      .sub-header
+        %ul.nav.nav-tabs.nav-justified
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              Employees
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Employees List",employees_path
+              %li
+                = link_to "Monthly Activity Sheet", monthly_activity_sheets_path
 
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Projects
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to "Projects List", projects_path
-            %li
-              = link_to "Employee Projects List", project_employees_path
-    .sub-header1
-      %ul.nav.nav-tabs.nav-justified
-        %li.active
-          %a{href: "#"} Signup
-        %li
-          %a{href: "#"} Login
+              -#%li.divider
+              -#%li
+              -#  %a{href: "#"} Trash
+          %li
+            = link_to "Paymonths", paymonths_path
+
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              Projects
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Projects List", projects_path
+              %li
+                = link_to "Employee Projects List", project_employees_path
+      .sub-header1
+        %ul.nav.nav-tabs.nav-justified
+          %li.active
+            = link_to "Logout", signout_path, method: "delete"
+    - else
+      .sub-header1
+        %ul.nav.nav-tabs.nav-justified
+          %li.active
+            = link_to "Signup", root_path
+          %li
+            = link_to "Login", new_session_path
+
     .cls

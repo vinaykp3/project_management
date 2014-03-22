@@ -1,0 +1,37 @@
+- if signed_in?
+  .main-container
+    %h1 All Employees
+    .navigation-lists
+      .list-group
+        %li.list-group-item.list-group-font
+          = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+          = link_to "Add New Employee", new_employee_path, class: "list-group-font"
+        %li.list-group-item.list-group-font
+          = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+          = link_to "Download Employee Report", employees_path(format: "xlsx"), class: "list-group-font"
+
+    .employees-list
+      %table.table.table-striped.table-hover
+        %tr
+          %th Employee Id
+          %th Name
+          %th Gender
+          %th Date of Joining
+          %th Options
+        - @employees.each do |emp|
+          %tr
+            %td= emp.emp_id
+            %td= emp.name
+            %td= emp.gender
+            %td= emp.date_of_joining.strftime("%d %b %y")
+            %td
+              = link_to image_tag("profile.png", :size => "16"), emp
+              &nbsp
+              = link_to image_tag("edit.png", :size => "16"),edit_employee_path(emp)
+              &nbsp
+              = link_to image_tag("delete.png"), emp,method: :delete,
+              data: { confirm: "Employee Will Be Deleted? Are You Sure" }
+    .cls
+- else
+  .main-container
+    %h1 You have to be logged in to view this page

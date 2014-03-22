@@ -6,10 +6,11 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
-      #Employee has been created
+      flash[:success] = "Employee has been created"
       redirect_to employees_url
     else
-      render 'new'
+      flash[:danger] = @employee.errors.full_messages
+      redirect_to new_employee_path
     end
   end
 

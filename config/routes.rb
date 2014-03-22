@@ -12,7 +12,8 @@ SimpleRailsApp::Application.routes.draw do
     get "fetch_assign_employees_to_project_selected", :on => :collection
     get "monthly_activity", :on => :collection
   end
-
+  resources :sessions, only: [:new, :create, :destroy, :index]
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   root 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -27,11 +27,14 @@ $grayLighter: #f3f3f3;
 .main-container{
   width: 980px;
   margin: 0px auto;
+
   h1{
-    text-align: center;
+    text-align: left;
 //    font-weight: bold;
     font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
     font-size: 30px;
+    border-bottom:1px solid #ddd;
+    padding-bottom: 10px;
   }
 }
 
@@ -70,7 +73,7 @@ $grayLighter: #f3f3f3;
 }
 
 .container{
-  padding-top:20px;
+  padding-top:10px;
   width: 980px;
   margin: 0px auto;
 }

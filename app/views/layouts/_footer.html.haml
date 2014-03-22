@@ -1,2 +1,13 @@
 %footer.main-footer
-  .sub-footer Currently v3.1.1 · GitHub · Examples · v2.3.2 docs · About · Expo · Blog · Issues · Releases
+  -if signed_in?
+    .sub-footer
+      = link_to "Employees", employees_url
+      |
+      = link_to "Projects", projects_url
+      |
+      = link_to "Paymonths", paymonths_url
+  -else
+    .sub-footer
+      = link_to "Signup", root_url
+      |
+      = link_to "Login", new_session_url

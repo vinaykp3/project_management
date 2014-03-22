@@ -7,8 +7,12 @@ class ProjectEmployeesController < ApplicationController
 
   def create
     @project_employee = ProjectEmployee.new
-    if @project_employee.save_project_employees(params[:project_employee][:project_id], params[:project_employee][:employee_ids])
+    if !params[:project_employee][:employee_ids].nil?
+      @project_employee.save_project_employees(params[:project_employee][:project_id], params[:project_employee][:employee_ids])
       redirect_to project_employees_path
+    else
+      flash[:danger] = "Select Employees To Be Assigned"
+      redirect_to new_project_employee_path
     end
   end
 

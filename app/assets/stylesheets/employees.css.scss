@@ -5,6 +5,7 @@
 
   width: 300px;
   border: 2px solid #ddd;
+  float: left;
   li{
     list-style-type: none;
     padding: 2px;
@@ -21,7 +22,8 @@
 .navigation-list1{
   width: 300px;
   border: 2px solid #ddd;
-  margin-top: 8px;
+
+  float: left;
   li{
     list-style-type: none;
     padding: 2px;
@@ -42,50 +44,52 @@
 .navigation-lists{
   width: 300px;
   float: left;
+  margin-top: 10px;
 }
 
 .employees-list{
-  width: 505px;
+  width: 640px;
   float: left;
   margin-left: 10px;
-
+  padding-top: 10px;
 }
 
-table{
-  width: 490px;
-  border:1px solid #ddd;
-  font-size: 14px;
-  //  background-color: #d9d9d9;
-  padding-bottom: 1px;
-  th{
-    border: 1px solid #ddd;
-//    padding-left: 30px;
-    padding: 0 38px 0 39px;
-//    padding-right: 45px;
-    background-color: #f1f1f1;
-    color: #444444;
-    text-align: center;
-  }
-  td{
-    border: 1px solid #ddd;
-    background-color: #ffffff;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-    a{
-      text-decoration: none;
-      margin-left: 5px;
-      font-size: 14px;
-      text-align: left;
-      color: #444444;
-      &:hover{
-      color: #0088cc;
-    }
-    }
-}
-}
+//table{
+//  width: 490px;
+//  border:1px solid #ddd;
+//  font-size: 14px;
+//  //  background-color: #d9d9d9;
+//  padding-bottom: 1px;
+//  th{
+//    border: 1px solid #ddd;
+////    padding-left: 30px;
+//    padding: 0 38px 0 39px;
+////    padding-right: 45px;
+//    background-color: #f1f1f1;
+//    color: #444444;
+//    text-align: center;
+//  }
+//  td{
+//    border: 1px solid #ddd;
+//    background-color: #ffffff;
+//    padding-left: 10px;
+//    padding-right: 10px;
+//    text-align: center;
+//    a{
+//      text-decoration: none;
+//      margin-left: 5px;
+//      font-size: 14px;
+//      text-align: left;
+//      color: #444444;
+//      &:hover{
+//      color: #0088cc;
+//    }
+//    }
+//}
+//}
 h1{
   color: #444444;
+
 }
 
 .form-mainbox2{

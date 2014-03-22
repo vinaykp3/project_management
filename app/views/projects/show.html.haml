@@ -1,0 +1,19 @@
+.main-container
+  %h1 All Projects
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Show All Projects", projects_path, class: "list-group-font"
+  .employees-list
+    %table.table.table-striped.table-hover
+      %tr
+        %th Project Name
+        %th Project Commence Date
+        %th Project Completion Date
+        %tr
+          %td= @project.project_name
+          %td= @project.project_commence_date.strftime("%d %b %y")
+          %td= @project.project_completion_date.strftime("%d %b %y")
+
+  .cls

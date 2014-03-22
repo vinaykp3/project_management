@@ -1,5 +1,10 @@
 class Employee < ActiveRecord::Base
   belongs_to :projects
+  validates :emp_id, presence: true, :numericality => {:only_integer => true}
+  EMPLOYEE_NAME_REGEX = /\A\D+\z/
+  validates :name, presence: true, format: {:with => EMPLOYEE_NAME_REGEX , :message => "can be in Words only"}
+  validates :gender, presence: true
+  validates :date_of_joining, presence: true
 
   def self.generate_excel
     require "rubygems" # if that is your preferred way to manage gems!

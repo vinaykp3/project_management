@@ -1,0 +1,12 @@
+.main-container
+  .gravatar-image-content
+    = gravatar_for @user
+  .name-email-content
+    = @user.name
+    = @user.email
+  .admin-access-tabs
+    .float-tab
+      = link_to "Paymonths",paymonths_path
+      = link_to "Projects",projects_path
+      = link_to "Employees",employees_path
+  .cls

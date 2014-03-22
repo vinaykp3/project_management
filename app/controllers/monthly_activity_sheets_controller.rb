@@ -8,8 +8,12 @@ class MonthlyActivitySheetsController < ApplicationController
 
   def create
    @monthly_activity = MonthlyActivitySheet.new
-   if @monthly_activity.save_month_activity_sheet(params[:month_id],params[:project_id],params[:emp_id_present_days])
+   if !params[:emp_id_present_days].nil?
+   @monthly_activity.save_month_activity_sheet(params[:month_id],params[:project_id],params[:emp_id_present_days])
      redirect_to monthly_activity_sheets_path
+   else
+     flash[:danger] = "Please Select Options"
+     redirect_to new_monthly_activity_sheet_path
    end
   end
 

@@ -6,11 +6,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    if @project.save!
+    if @project.save
       flash[:success] = "Project Created Successfully"
       redirect_to projects_url
     else
-      render 'new'
+      flash[:danger] = @project.errors.full_messages
+      redirect_to new_project_path
     end
   end
 
@@ -20,19 +21,6 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.all
-  end
-
-  def edit
-    @project = Project.find(params[:id])
-  end
-
-  def update
-    @project = Project.find(params[:id])
-    if @project.update(project_params)
-      redirect_to projects_url
-    else
-      render'edit'
-    end
   end
 
   def destroy

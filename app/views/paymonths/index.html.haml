@@ -1,0 +1,23 @@
+.main-container
+  %h1 All Paymonths
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Add New Paymonth", new_paymonth_path, class: "list-group-font"
+  .employees-list
+    %table.table.table-striped.table-hover
+      %tr
+        %th Paymonth
+        %th From Date
+        %th To Date
+        %th Options
+      - @paymonth.each do |pmonth|
+        %tr
+          %td= pmonth.month_year.upcase
+          %td= pmonth.from_date.strftime("%d %B %y").upcase
+          %td= pmonth.to_date.strftime("%d %B %y").upcase
+          %td
+            = link_to image_tag("delete.png"), pmonth, method: :delete, |
+              data: { confirm: "You sure?" }             |
+  .cls

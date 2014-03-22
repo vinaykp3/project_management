@@ -1,0 +1,36 @@
+:javascript
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "d/M/yy",
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+
+  $(function() {
+    $( "#datepicker1" ).datepicker({
+      dateFormat: "d/M/yy",
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+
+.main-container
+  %h1 New Project
+  .navigation-lists
+    .list-group
+      %li.list-group-item.list-group-font
+        = image_tag("arrow.png", :alt=>"arrow", :class => "arrow")
+        = link_to "Show All Projects", projects_path, class: "list-group-font"
+  .employees-list
+    .project-registration-form
+      = form_for(@project) do |f|
+        .form-fieldbox
+          = f.text_field :project_name, :class => "form-control",:placeholder => "Project Name", :autofocus => true
+        .form-fieldbox
+          = f.text_field :project_commence_date, :id => "datepicker", :class => "form-control",:placeholder => "Project Commencement Date"
+        .form-fieldbox
+          = f.text_field :project_completion_date, :id => "datepicker1", :class => "form-control",:placeholder => "Project Completion Date"
+        .form-button
+          = f.submit "Submit", class: "btn btn-large btn-primary"
+  .cls

@@ -7,12 +7,15 @@
   width: 670px;
 //  background-color: #d9d9d9;
   margin-left: 6px;
+  margin-top: 10px;
+
 }
 
 .project-list-selectbox{
   width: 670px;
   background-color:#ddd;
   font-size: 16px;
+  padding: 5px;
   label{
     margin-left: 5px;
   }
@@ -22,11 +25,9 @@
 }
 
 .employee-list{
-  background-color: #5bc0de;
   padding-bottom: 2px;
   table{
-    width: 660px;
-    margin-left: 5px;
+    width: 670px;
     border: none;
     text-align: left;
     th{
@@ -39,11 +40,8 @@
 }
 
 .result_list_style{
-  background-color: #5bc0de;
   padding-bottom: 2px;
   table{
-    width: 660px;
-    margin-left: 5px;
     border: none;
     text-align: left;
     th{
@@ -53,4 +51,14 @@
       padding-left: 5px;
     }
   }
+}
+
+.download-background{
+  background-color: #0088cc;
+  padding: 5px;
+}
+
+.link-color{
+color: #f3f3f3;
+
 }
